@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    url: jdbc:mysql://192.168.80.130:3306/jpa_demo
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+#     更新或创建表（没有表就创建，表有数据改动就进行更新操作）
+      ddl-auto: update
+#      控制台显示Sql
+    show-sql: true

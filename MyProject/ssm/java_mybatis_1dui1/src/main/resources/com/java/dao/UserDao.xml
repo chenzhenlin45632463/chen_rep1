@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.java.dao.UserDao">
+
+    <resultMap id="userAboutUser" type="user">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="number" column="number"/>
+        <result property="email" column="email"/>
+        <result property="age" column="age"/>
+        <result property="address" column="address"/>
+
+        <association property="aboutUser" javaType="aboutUser">
+            <id property="id" column="aid"/>
+            <result property="name" column="role_name"/>
+            <result property="uid" column="uid"/>
+        </association>
+    </resultMap>
+
+    <select id="findAll" resultMap="userAboutUser">
+        SELECT u.*,au.id aid,au.role_name,au.uid
+        FROM sys_user u,about_user au
+        WHERE u.id = au.uid
+    </select>
+</mapper>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        https://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <bean id="accountService" class="com.java.service.impl.AccountServiceImpl"/>
+
+    <bean id="proxyManager" class="com.java.ProxyManager"/>
+
+    <aop:config>
+        <aop:aspect id="proxyManager" ref="proxyManager"><!--通知类-->
+            <!--通知方法-->
+            <aop:before method="before" pointcut="execution(void com.java.service.impl.AccountServiceImpl.saveAccount())"/>
+            <aop:after method="finalReturning" pointcut="execution(void com.java.service.impl.AccountServiceImpl.saveAccount())"/>
+            <aop:after-throwing method="returningException" pointcut="execution(void com.java.service.impl.AccountServiceImpl.saveAccount())"/>
+            <aop:after-returning method="after" pointcut="execution(void com.java.service.impl.AccountServiceImpl.saveAccount())"/>
+        </aop:aspect>
+    </aop:config>
+
+</beans>

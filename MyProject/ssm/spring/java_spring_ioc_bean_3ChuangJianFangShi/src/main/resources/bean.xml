@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--方法1-->
+    <bean id="accountService" class="com.spring.service.impl.AccountServiceImpl"/>
+
+    <!--方法2-->
+    <!--<bean id="beanFactory" class="com.spring.factory.BeanFactory"/>
+    <bean id="accountService" factory-bean="beanFactory" factory-method="getAccountService"/>-->
+
+    <!--方法3-->
+    <!--<bean id="accountService" class="com.spring.factory.BeanFactory" factory-method="getAgain"/>-->
+</beans>
+

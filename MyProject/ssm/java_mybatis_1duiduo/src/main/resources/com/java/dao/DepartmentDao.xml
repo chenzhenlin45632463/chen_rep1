@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.java.dao.DepartmentDao">
+
+    <resultMap id="department" type="com.java.model.Department">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="adress" property="adress"/>
+
+        <collection property="eployeeList" ofType="com.java.model.Eployee">
+            <id column="eid" property="id"/>
+            <result column="ename" property="name"/>
+            <result column="dept_id" property="deptId"/>
+        </collection>
+    </resultMap>
+
+    <select id="find" parameterType="com.java.model.Department" resultMap="department">
+        SELECT d.*,e.id eid,e.name ename,e.dept_id
+        FROM deptment d, eployee e
+        WHERE d.id = e.dept_id
+        <if test="id !=null and id != 0">
+            and d.id = #{id}
+        </if>
+    </select>
+</mapper>

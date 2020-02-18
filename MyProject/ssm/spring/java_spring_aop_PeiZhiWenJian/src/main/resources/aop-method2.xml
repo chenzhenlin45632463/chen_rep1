@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        https://www.springframework.org/schema/aop/spring-aop.xsd">
+    
+    <bean id="accountService" class="com.java.service.impl.AccountServiceImpl"/>
+    <bean id="pxManager" class="com.java.ProxyManager"/>
+    
+    <aop:config>
+        <aop:aspect id="pxManager" ref="pxManager"><!--通知增强类对象-->
+            <!--<aop:pointcut id="save" expression="execution(* *..*.*(..))"/>-->
+            <aop:pointcut id="qrd" expression="execution(* com.java.service.impl.AccountServiceImpl.updateccount())"/>
+            <aop:before method="before" pointcut-ref="qrd"/>
+            <aop:after-returning method="after" pointcut-ref="qrd"/>
+            <aop:after-throwing method="returningException" pointcut-ref="qrd"/>
+            <aop:after method="finalReturning" pointcut-ref="qrd"/>
+        </aop:aspect>
+    </aop:config>
+</beans>

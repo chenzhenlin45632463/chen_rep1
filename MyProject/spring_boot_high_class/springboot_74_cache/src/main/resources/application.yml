@@ -1,0 +1,31 @@
+spring:
+  datasource:
+    url: jdbc:mysql://192.168.80.130:3306/spring_cache
+    # 有了url可省略driver-class-name的驱动信息，通过url会自动选择合适的驱动（好像是这么说的）
+    username: root
+    password: root
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+
+# redis ip 设置
+  redis:
+    host: 192.168.80.130
+
+#    应用启动端口号
+server:
+  port: 8074
+
+
+# 开启数据库和实体类对应的驼峰式命名规则
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+
+# 打印输出指定目录下的日志
+logging:
+  level:
+    #不同目录下的日志可配置不同级别
+    com.spring.high.springboot.mapper: debug
+
+
+# 启动时控制台打印输出自动配置的match信息
+#debug: true

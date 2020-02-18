@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://192.168.80.130:3306/jdbc_test
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    #    这个配置应该在schema配置前，不然2.X版本以上的springboot配置schema会报错
+    initialization-mode: always
+    #    直接在启动服务的时候初始化数据库信息（建表）
+    schema:
+      - classpath:chenwei.sql
+server:
+  port: 8023

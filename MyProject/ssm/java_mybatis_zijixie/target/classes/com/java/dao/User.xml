@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.java.dao.UserDao">
+    <select id="findAll" resultType="com.java.model.User">
+        select * from sys_USER
+    </select>
+    <insert id="addUser">
+   <selectKey keyColumn="id" keyProperty="id" resultType="int">
+       SELECT last_insert_id();
+   </selectKey>
+        INSERT into sys_user(NAME,NUMBER ,email,age,address) VALUES (#{name},#{number},#{email},#{age},#{address})
+    </insert>
+
+    <select id="findByName1" resultType="com.java.model.User" parameterType="com.java.model.User">
+        select * from sys_user u  where u.name LIKE #{name}
+    </select>
+    <select id="findByName2" resultType="com.java.model.User" parameterType="com.java.model.User">
+        select * from sys_user u  where u.name LIKE '%${name}%'
+    </select>
+    <select id="findByName3" resultType="com.java.model.User" parameterType="com.java.model.BaseEnity">
+        select * from sys_user u  where u.name LIKE #{user.name}
+    </select>
+
+    <resultMap id="userTest" type="com.java.model.UserTest">
+        <id property="userId" column="id"/>
+        <result property="userName" column="name"/>
+        <result property="userNumber" column="number"/>
+        <result property="userEmail" column="email"/>
+        <result property="userAge" column="age"/>
+        <result property="userAddress" column="address"/>
+    </resultMap>
+    <select id="findTest" resultMap="userTest">
+        select * from sys_user
+    </select>
+</mapper>

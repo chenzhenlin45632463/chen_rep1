@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="accountService" class="com.spring.service.impl.AccountServiceImpl">
+        <property name="accountList">
+            <array>
+                <value>陈巍</value>
+                <value>陈陈</value>
+                <value>陈镇霖</value>
+            </array>
+        </property>
+
+        <property name="accountSet">
+            <array>
+                <value>张无忌</value>
+                <value>张翠山</value>
+                <value>张三丰</value>
+            </array>
+        </property>
+
+        <property name="accountMap">
+            <map>
+                <entry key="姓名" value="石破天"/>
+                <entry key="年龄" value= "18"/>
+                <entry key="武功" value="太玄经"/>
+            </map>
+        </property>
+
+        <property name="accountProperties">
+            <props>
+                <prop key="姓名">郭靖</prop>
+                <prop key="年龄">38</prop>
+                <prop key="武功绝学">降龙十八掌</prop>
+                <prop key="大招">九阴真经</prop>
+            </props>
+        </property>
+
+    </bean>
+</beans>
