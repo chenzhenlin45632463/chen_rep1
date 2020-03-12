@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: hello-spring-cloud-service-admin
+
+server:
+#  提供服务客户端的端口号
+  port: 8079
+
+eureka:
+  client:
+    serviceUrl:
+#      注册中心服务端的地址
+      defaultZone: http://localhost:8076/eureka/
