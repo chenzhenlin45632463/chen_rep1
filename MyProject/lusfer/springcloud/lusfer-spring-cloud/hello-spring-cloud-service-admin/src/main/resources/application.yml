@@ -4,9 +4,9 @@ spring:
 
 server:
 #  提供服务端口号1
-  port: 8077
+#  port: 8077
 #  提供服务端口号2
-#  port: 8070
+  port: 8070
 
 eureka:
   client:
