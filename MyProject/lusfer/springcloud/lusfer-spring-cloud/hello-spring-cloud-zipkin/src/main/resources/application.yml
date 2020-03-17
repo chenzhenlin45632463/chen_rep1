@@ -2,6 +2,11 @@ spring:
   application:
     name: hello-spring-cloud-zipkin
 
+  boot:
+    admin:
+      client:
+        url: http://localhost:8084
+
 #  设置端口号为：9411，该端口号为 Zipkin Server 的默认端口号
 server:
   port: 9411
