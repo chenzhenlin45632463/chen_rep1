@@ -1,4 +1,4 @@
-package com.jike.time.space.timu;
+package com.jike.time.space.class3;
 
 import org.junit.jupiter.api.Test;
 
