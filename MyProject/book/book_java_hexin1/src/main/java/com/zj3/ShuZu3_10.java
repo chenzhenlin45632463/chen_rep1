@@ -51,6 +51,15 @@ public class ShuZu3_10 {
         System.out.println(result);
     }
 
+    @Test
+    public void test4(){
+        int[]a1={1,2,3,4,5,6,7};
+        int[]a2={1,2,23,4,5,6,7};
+        int[]a3={1,2,3,4,5,6,7};
+        boolean result = Arrays.equals(a1, a3);
+        System.out.println(result);
+    }
+
     /**
      * 数组模拟抽彩
      *
