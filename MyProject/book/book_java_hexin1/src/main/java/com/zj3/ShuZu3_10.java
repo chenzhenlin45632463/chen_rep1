@@ -3,7 +3,6 @@ package com.zj3;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
-import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -44,7 +43,7 @@ public class ShuZu3_10 {
     @Test
     public void test3() {
         //初始化数组
-        int[]in = {1,2,3,4,5,6,7,8,9};
+        int[] in = {1, 2, 3, 4, 5, 6, 7, 8, 9};
         int i = Arrays.binarySearch(in, 7);
         System.out.println(i);
         int result = Arrays.binarySearch(in, 2, 5, 2);
@@ -52,12 +51,41 @@ public class ShuZu3_10 {
     }
 
     @Test
-    public void test4(){
-        int[]a1={1,2,3,4,5,6,7};
-        int[]a2={1,2,23,4,5,6,7};
-        int[]a3={1,2,3,4,5,6,7};
+    public void test4() {
+        int[] a1 = {1, 2, 3, 4, 5, 6, 7};
+        int[] a2 = {1, 2, 23, 4, 5, 6, 7};
+        int[] a3 = {1, 2, 3, 4, 5, 6, 7};
         boolean result = Arrays.equals(a1, a3);
         System.out.println(result);
+    }
+
+    /**
+     * 多维数组的初始化与操作
+     */
+    @Test
+    public void test5() {
+        //二维数组的三种定义方式
+//        int[][] arr = new int[][];此种方法定义错误
+        int[][] arr = new int[4][];
+        System.out.println(Arrays.toString(arr));
+        int[][] arr1 = new int[4][3];
+        System.out.println(Arrays.toString(arr1));
+        int[][] arr2 =
+                {
+                        {1},
+                        {1, 2},
+                        {1, 2, 3,23,67},
+                        {1, 2, 43,36}
+                };
+        System.out.println(Arrays.toString(arr2));
+        System.out.println("-------------------------------------");
+        //二维数组的遍历及获取每一个元素，以arr2为例
+        for (int i = 0; i < arr2.length; i++) {
+            for (int j = 0; j < arr2[i].length; j++) {
+                System.out.print(arr2[i][j]+"  ");
+            }
+            System.out.println("");
+        }
     }
 
     /**
